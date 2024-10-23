@@ -2,127 +2,12 @@
     <Frame name="CyborgRaidFrame" hidden="true">
         <Frames>
             <!-- Define 25 raid frames for testing -->
-            <Frame name="CRaidFrame1" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
+            <Frame name="RaidFrame1" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
                 <Anchors>
                     <Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="10" y="-10"/>
                 </Anchors>
             </Frame>
-            <Frame name="CRaidFrame2" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame3" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame4" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame5" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame6" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame7" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame8" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame9" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame10" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame11" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame12" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame13" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame14" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame15" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame16" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame17" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame18" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame19" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame20" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame21" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame22" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame23" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame24" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
-                <Anchors>
-                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
-                </Anchors>
-            </Frame>
-            <Frame name="CRaidFrame25" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
+            <Frame name="RaidFrame2" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
                 <Anchors>
                     <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
                 </Anchors>
