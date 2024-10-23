@@ -19,24 +19,18 @@ end
 -- Function to handle dummy data and update the raid frames
 function UpdateRaidFrames(dummyData)
     for i = 1, NUM_TEST_RAID_MEMBERS do
-        local raidFrame = _G["CRaidFrame" .. i]
-        if not raidFrame then
-            raidFrame = CreateFrame("Frame", "CRaidFrame" .. i, CyborgRaidFrame, "RaidFrameTemplate")
-            if i == 1 then
-                raidFrame:SetPoint("TOPLEFT", CyborgRaidFrame, "TOPLEFT", 10, -10)
+        local raidFrame = _G["RaidFrame" .. i]
+        if raidFrame then
+            if i <= #dummyData then
+                local player = dummyData[i]
+                raidFrame:Show()
+                raidFrame.name:SetText(player.name)
+                raidFrame.health:SetValue(player.health)
+                raidFrame.mana:SetValue(player.mana)
+                raidFrame.class:SetText(player.class)
             else
-                raidFrame:SetPoint("TOPLEFT", _G["CRaidFrame" .. (i - 1)], "BOTTOMLEFT", 0, -5)
+                raidFrame:Hide()
             end
-        end
-        if i <= #dummyData then
-            local player = dummyData[i]
-            raidFrame:Show()
-            raidFrame.name:SetText(player.name)
-            raidFrame.health:SetValue(player.health)
-            raidFrame.mana:SetValue(player.mana)
-            raidFrame.class:SetText(player.class)
-        else
-            raidFrame:Hide()
         end
     end
 end
