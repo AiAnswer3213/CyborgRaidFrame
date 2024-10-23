@@ -4,5 +4,5 @@
 ## Author: AI
 ## Version: 1.0.0
 
-CRaidUI.lua
 CRaidUI.xml
+CRaidUI.lua
