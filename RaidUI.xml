@@ -1,0 +1,49 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+    <Frame name="CyborgRaidFrame" hidden="true">
+        <Frames>
+            <!-- Define 25 raid frames for testing -->
+            <Frame name="RaidFrame1" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="10" y="-10"/>
+                </Anchors>
+            </Frame>
+            <Frame name="RaidFrame2" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
+                </Anchors>
+            </Frame>
+        </Frames>
+    </Frame>
+
+    <!-- Define the RaidFrameTemplate -->
+    <Frame name="RaidFrameTemplate" virtual="true">
+        <Frames>
+            <StatusBar name="$parentHealth" inherits="TextStatusBar">
+                <Size>
+                    <AbsDimension x="100" y="20"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="0" y="0"/>
+                </Anchors>
+            </StatusBar>
+            <StatusBar name="$parentMana" inherits="TextStatusBar">
+                <Size>
+                    <AbsDimension x="100" y="20"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
+                </Anchors>
+            </StatusBar>
+            <FontString name="$parentName" inherits="GameFontNormal">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="110" y="0"/>
+                </Anchors>
+            </FontString>
+            <FontString name="$parentClass" inherits="GameFontNormal">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="110" y="-5"/>
+                </Anchors>
+            </FontString>
+        </Frames>
+    </Frame>
+</Ui>

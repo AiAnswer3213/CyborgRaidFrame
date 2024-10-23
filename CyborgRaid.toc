@@ -1,0 +1,8 @@
+## Interface: 20400
+## Title: CyborgRaidFrame
+## Notes: Raid frames similar to WoW Cataclysm (4.3.4) for version 2.4.3
+## Author: AI
+## Version: 1.0.0
+
+RaidUI.lua
+RaidUI.xml
