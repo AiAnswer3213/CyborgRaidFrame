@@ -1,6 +1,6 @@
 -- CRaidUI.lua
 
-local NUM_TEST_RAID_MEMBERS = 25
+local NUM_TEST_RAID_MEMBERS = 10
 
 -- Function to generate dummy data for testing
 function GenerateDummyData()
