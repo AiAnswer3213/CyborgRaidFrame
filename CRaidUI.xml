@@ -84,6 +84,27 @@
                     <Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" x="110" y="-5"/>
                 </Anchors>
             </FontString>
+            <!-- Add elements for displaying 4 debuffs -->
+            <Frame name="$parentDebuff1" inherits="DebuffTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="220" y="0"/>
+                </Anchors>
+            </Frame>
+            <Frame name="$parentDebuff2" inherits="DebuffTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="240" y="0"/>
+                </Anchors>
+            </Frame>
+            <Frame name="$parentDebuff3" inherits="DebuffTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="260" y="0"/>
+                </Anchors>
+            </Frame>
+            <Frame name="$parentDebuff4" inherits="DebuffTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="280" y="0"/>
+                </Anchors>
+            </Frame>
         </Frames>
     </Frame>
 </Ui>
