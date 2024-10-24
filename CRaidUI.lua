@@ -5,6 +5,9 @@ local NUM_TEST_RAID_MEMBERS = 10
 -- Require CDebuff.lua
 local CDebuff = require("CDebuff")
 
+-- Global test mode switch
+local TEST_MODE = false
+
 -- Function to generate dummy data for testing
 function GenerateDummyData()
     local dummyData = {}
@@ -25,6 +28,24 @@ function GenerateDummyData()
     return dummyData
 end
 
+-- Function to fetch real data from the game
+function FetchRealData()
+    local realData = {}
+    for i = 1, NUM_TEST_RAID_MEMBERS do
+        local unit = "raid" .. i
+        if UnitExists(unit) then
+            table.insert(realData, {
+                name = UnitName(unit),
+                health = UnitHealth(unit),
+                mana = UnitMana(unit),
+                class = UnitClass(unit),
+                debuffs = GetUnitDebuffs(unit)
+            })
+        end
+    end
+    return realData
+end
+
 -- Function to get class color
 function GetClassColor(class)
     local classColors = {
@@ -41,13 +62,13 @@ function GetClassColor(class)
     return classColors[class] or {r = 1.0, g = 1.0, b = 1.0}
 end
 
--- Function to handle dummy data and update the raid frames
-function UpdateRaidFrames(dummyData)
+-- Function to handle data and update the raid frames
+function UpdateRaidFrames(data)
     for i = 1, NUM_TEST_RAID_MEMBERS do
         local raidFrame = _G["RaidFrame" .. i]
         if raidFrame then
-            if i <= #dummyData then
-                local player = dummyData[i]
+            if i <= #data then
+                local player = data[i]
                 raidFrame:Show()
                 raidFrame.name:SetText(player.name)
                 raidFrame.health:SetValue(player.health)
@@ -79,6 +100,11 @@ function UpdateRaidFrames(dummyData)
     end
 end
 
--- Initialize the raid frames with dummy data for testing
-local dummyData = GenerateDummyData()
-UpdateRaidFrames(dummyData)
+-- Initialize the raid frames with data
+local data
+if TEST_MODE then
+    data = GenerateDummyData()
+else
+    data = FetchRealData()
+end
+UpdateRaidFrames(data)

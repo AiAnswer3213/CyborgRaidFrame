@@ -5,6 +5,8 @@
                 self:RegisterEvent("RAID_ROSTER_UPDATE");
                 self:RegisterEvent("UNIT_HEALTH");
                 self:RegisterEvent("UNIT_MANA");
+                data = FetchRealData();
+                UpdateRaidFrames(data);
             </OnLoad>
             <OnEvent>
                 if (event == "RAID_ROSTER_UPDATE" or (event == "UNIT_HEALTH" and arg1:find("raid")) or (event == "UNIT_MANA" and arg1:find("raid"))) then
