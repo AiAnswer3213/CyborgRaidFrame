@@ -1,5 +1,17 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
     <Frame name="CyborgRaidFrame" hidden="true">
+        <Scripts>
+            <OnLoad>
+                self:RegisterEvent("RAID_ROSTER_UPDATE");
+                self:RegisterEvent("UNIT_HEALTH");
+                self:RegisterEvent("UNIT_MANA");
+            </OnLoad>
+            <OnEvent>
+                if (event == "RAID_ROSTER_UPDATE" or (event == "UNIT_HEALTH" and arg1:find("raid")) or (event == "UNIT_MANA" and arg1:find("raid"))) then
+                    UpdateRaidFrames();
+                end
+            </OnEvent>
+        </Scripts>
         <Frames>
             <!-- Define 10 raid frames for testing -->
             <Frame name="RaidFrame1" parent="CyborgRaidFrame" inherits="RaidFrameTemplate">

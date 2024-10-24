@@ -2,26 +2,6 @@
 
 local NUM_TEST_RAID_MEMBERS = 10
 
--- Function to generate dummy data for testing
-function GenerateDummyData()
-    local dummyData = {}
-    for i = 1, NUM_TEST_RAID_MEMBERS do
-        table.insert(dummyData, {
-            name = "Player" .. i,
-            health = math.random(1, 100),
-            mana = math.random(1, 100),
-            class = "Warrior",
-            debuffs = {
-                {name = "Debuff1", icon = "Interface\\Icons\\Spell_Nature_Polymorph"},
-                {name = "Debuff2", icon = "Interface\\Icons\\Spell_Nature_Polymorph"},
-                {name = "Debuff3", icon = "Interface\\Icons\\Spell_Nature_Polymorph"},
-                {name = "Debuff4", icon = "Interface\\Icons\\Spell_Nature_Polymorph"}
-            }
-        })
-    end
-    return dummyData
-end
-
 -- Function to get class color
 function GetClassColor(class)
     local classColors = {
@@ -38,30 +18,37 @@ function GetClassColor(class)
     return classColors[class] or {r = 1.0, g = 1.0, b = 1.0}
 end
 
--- Function to handle dummy data and update the raid frames
-function UpdateRaidFrames(dummyData)
+-- Function to handle real data and update the raid frames
+function UpdateRaidFrames()
+    local numRaidMembers = GetNumGroupMembers()
     for i = 1, NUM_TEST_RAID_MEMBERS do
         local raidFrame = _G["RaidFrame" .. i]
         if raidFrame then
-            if i <= #dummyData then
-                local player = dummyData[i]
+            if i <= numRaidMembers then
+                local unit = "raid" .. i
+                local name = UnitName(unit)
+                local health = UnitHealth(unit)
+                local mana = UnitPower(unit)
+                local class = UnitClass(unit)
+
                 raidFrame:Show()
-                raidFrame.name:SetText(player.name)
-                raidFrame.health:SetValue(player.health)
-                raidFrame.mana:SetValue(player.mana)
-                raidFrame.class:SetText(player.class)
+                raidFrame.name:SetText(name)
+                raidFrame.health:SetValue(health)
+                raidFrame.mana:SetValue(mana)
+                raidFrame.class:SetText(class)
 
                 -- Set class color
-                local classColor = GetClassColor(player.class)
+                local classColor = GetClassColor(class)
                 raidFrame.health:SetStatusBarColor(classColor.r, classColor.g, classColor.b)
                 raidFrame.mana:SetStatusBarColor(classColor.r, classColor.g, classColor.b)
 
                 -- Update debuffs
                 for j = 1, 4 do
                     local debuffFrame = raidFrame["debuff" .. j]
-                    if player.debuffs[j] then
+                    local debuffName, _, debuffIcon = UnitDebuff(unit, j)
+                    if debuffName then
                         debuffFrame:Show()
-                        debuffFrame.icon:SetTexture(player.debuffs[j].icon)
+                        debuffFrame.icon:SetTexture(debuffIcon)
                     else
                         debuffFrame:Hide()
                     end
@@ -73,6 +60,16 @@ function UpdateRaidFrames(dummyData)
     end
 end
 
--- Initialize the raid frames with dummy data for testing
-local dummyData = GenerateDummyData()
-UpdateRaidFrames(dummyData)
+-- Event handler function
+local function OnEvent(self, event, arg1)
+    if event == "RAID_ROSTER_UPDATE" or (event == "UNIT_HEALTH" and arg1:find("raid")) or (event == "UNIT_MANA" and arg1:find("raid")) then
+        UpdateRaidFrames()
+    end
+end
+
+-- Register event handlers
+local frame = CreateFrame("Frame")
+frame:RegisterEvent("RAID_ROSTER_UPDATE")
+frame:RegisterEvent("UNIT_HEALTH")
+frame:RegisterEvent("UNIT_MANA")
+frame:SetScript("OnEvent", OnEvent)
